@@ -1,6 +1,10 @@
 import random
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
+
+results_dir = "../results"
+os.makedirs(results_dir, exist_ok=True)
 
 # Impostazioni iniziali
 saldo_iniziale = 50
@@ -158,13 +162,13 @@ for ax, (nome, storico) in zip(axs.flat, risultati.items()):
     ax.grid(True)
 
 plt.tight_layout(rect=[0, 0.03, 1, 0.97])
-plt.savefig("strategie_roulette_completo.png")
+plt.savefig(os.path.join(results_dir, "strategie_roulette_completo.png"))
 plt.close()
 
 metriche = [calcola_metriche(nome, storico) for nome, storico in risultati.items()]
 df_metriche = pd.DataFrame(metriche)
 df_metriche = df_metriche.sort_values(by="Guadagno (€)", ascending=False)
-df_metriche.to_csv("metriche_strategie.csv", index=False)
+df_metriche.to_csv(os.path.join(results_dir, "metriche_strategie.csv"), index=False)
 
 # Salva tabella come PNG
 fig, ax = plt.subplots(figsize=(12, len(df_metriche) * 0.6 + 1))
@@ -178,5 +182,5 @@ tabella.set_fontsize(10)
 tabella.scale(1, 1.5)
 
 plt.tight_layout()
-plt.savefig("metriche_strategie.png", bbox_inches='tight')
+plt.savefig(os.path.join(results_dir, "metriche_strategie.png"), bbox_inches='tight')
 plt.close()

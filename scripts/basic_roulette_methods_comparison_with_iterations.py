@@ -1,6 +1,10 @@
 import random
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
+
+results_dir = "../results"
+os.makedirs(results_dir, exist_ok=True)
 
 # Impostazioni iniziali
 saldo_iniziale = 5000
@@ -178,5 +182,5 @@ tabella.set_fontsize(10)
 tabella.scale(1, 1.5)
 
 plt.tight_layout()
-plt.savefig("metriche_strategie_medie.png", bbox_inches='tight')
+plt.savefig(os.path.join(results_dir, "metriche_strategie_medie.png"), bbox_inches='tight')
 plt.close()

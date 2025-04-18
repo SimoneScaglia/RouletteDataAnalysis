@@ -9,3 +9,6 @@
 
 # Ignore virtual environments
 venv/
+
+# Ignore results directory
+results/
