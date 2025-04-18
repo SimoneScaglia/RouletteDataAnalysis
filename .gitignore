@@ -1,0 +1,11 @@
+# Ignore PNG files
+*.png
+
+# Ignore CSV files
+*.csv
+
+# Ignore Python bytecode files
+*.pyc
+
+# Ignore virtual environments
+venv/
