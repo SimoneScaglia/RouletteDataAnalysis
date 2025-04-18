@@ -16,11 +16,9 @@ def update_counters(color_input):
 
 def get_bet_recommendation():
     if color_counters["red"] >= 3:
-        bet_color = "black"
         bet_multiplier = 2 if color_counters["red"] > 3 else 1
         return f"Streak detected: {color_counters['red']}x RED → Bet on BLACK with {bet_multiplier}x base bet."
     elif color_counters["black"] >= 3:
-        bet_color = "red"
         bet_multiplier = 2 if color_counters["black"] > 3 else 1
         return f"Streak detected: {color_counters['black']}x BLACK → Bet on RED with {bet_multiplier}x base bet."
     else:
